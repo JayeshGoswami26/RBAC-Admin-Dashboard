@@ -39,7 +39,7 @@ const RoleList: React.FC = () => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const permissions: Permission[] = [];
-    
+
     ['users', 'content', 'settings'].forEach(module => {
       ['create', 'read', 'update', 'delete'].forEach(action => {
         const permissionName = `${module}_${action}`;
@@ -137,7 +137,7 @@ const RoleList: React.FC = () => {
                             id={permissionName}
                             name={permissionName}
                             label={action}
-                            defaultChecked={hasPermission}
+                            checked={hasPermission} // <-- changed this to 'checked' instead of 'defaultChecked'
                           />
                         );
                       })}
@@ -202,9 +202,6 @@ const RoleList: React.FC = () => {
                 >
                   <Trash2 className="w-4 h-4" />
                 </button>
-                {/* <button className="p-2 hover:bg-[#2D2A3E] rounded-lg transition-colors">
-                  <MoreVertical className="w-4 h-4" />
-                </button> */}
               </div>
             </div>
 
